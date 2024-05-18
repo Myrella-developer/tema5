@@ -3,14 +3,17 @@
         public function area(); 
     }
 
-    class Rectangle implements Shape {
-        private $width;
-        private $heigth;
+    abstract class completeShape implements Shape{
+        protected $width;
+        protected $heigth;
 
         public function __construct($width, $heigth) {
             $this -> width  = $width;
             $this -> heigth = $heigth;
         }
+    }
+    class Rectangle extends completeShape {
+        
 
         public function area() {
             $area = $this -> width * $this -> heigth;
@@ -18,15 +21,8 @@
         }
     }
 
-    class Triangle implements Shape {
-        private $width;
-        private $heigth;
-
-        public function __construct($width, $heigth) {
-            $this -> width  = $width;
-            $this -> heigth = $heigth;
-        }
-
+    class Triangle extends completeShape {
+       
         public function area() {
             $area = ($this -> width * $this -> heigth) /2;
             return $area;
